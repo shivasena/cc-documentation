@@ -1,13 +1,10 @@
-import * as React from "react";
-import SideBar from "../components/SideBar";
+import React from "react";
+import LayoutSidebar from "../components/LayoutSidebal";
 
-const IndexPage = () => {
+export default function LayoutPage() {
   return (
-    <main className="flex flex-row">
-      <div className="flex w-72 flex-cols min-h-screen">
-        <SideBar />
-      </div>
-      <div className="prose mx-auto max-w-7xl sm:px-6 lg:px-8 my-24">
+    <LayoutSidebar>
+      <div className="prose">
         <h1>1. Introduction</h1>
         <h2>Purpose of the Document</h2>
         <p>
@@ -58,10 +55,6 @@ const IndexPage = () => {
           assistance from the college's web development team.
         </p>
       </div>
-    </main>
+    </LayoutSidebar>
   );
-};
-
-export default IndexPage;
-
-export const Head = () => <title>Home Page</title>;
+}
