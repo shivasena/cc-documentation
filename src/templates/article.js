@@ -18,7 +18,11 @@ export default function ArticleTemplate({
         return (
           <div key={block.id}>
             {console.log("block:", block.model.apiKey)}
-            {block.model.apiKey === "modular_text" && <div>TEXT</div>}
+            {block.model.apiKey === "modular_text" && (
+              <div>
+                {block.multipleParagraphTextNode.childMarkdownRemark.html}
+              </div>
+            )}
             {block.model.apiKey === "modular_image" && (
               <GatsbyImage
                 image={block.image.gatsbyImageData}
@@ -45,7 +49,10 @@ export const query = graphql`
           model {
             apiKey
           }
-          multipleParagraphText
+          multipleParagraphTextNode {
+          childMarkdownRemark {
+            html
+          }
         }
         ... on DatoCmsModularImage {
           id
